@@ -1,8 +1,8 @@
-# 🎓 Sistema de Gerenciamento Escolar - Arquitetura de Microsserviços
+# Sistema de Gerenciamento Escolar - Arquitetura de Microsserviços
 
 Uma solução completa de microsserviços para gerenciamento escolar desenvolvida com Flask, seguindo o padrão arquitetural MVC (Model-View-Controller). O sistema é composto por três microsserviços independentes que se comunicam via HTTP REST API, permitindo escalabilidade e manutenção independente de cada serviço.
 
-## 📋 Índice
+## Índice
 
 - [Descrição da API](#-descrição-da-api)
 - [Arquitetura de Microsserviços](#-arquitetura-de-microsserviços)
@@ -15,11 +15,11 @@ Uma solução completa de microsserviços para gerenciamento escolar desenvolvid
 
 ---
 
-## 📖 Descrição da API
+## Descrição da API
 
 O sistema é dividido em **três microsserviços independentes**, cada um com sua própria base de dados e responsabilidades específicas:
 
-### 1️⃣ **Microsserviço de Gerenciamento** (Porta 5000)
+### **1. Microsserviço de Gerenciamento** (Porta 5000)
 Responsável pelo gerenciamento das entidades principais do sistema escolar:
 - **Professores**: CRUD completo para cadastro e gerenciamento de professores
 - **Turmas**: CRUD completo para gestão de turmas escolares
@@ -27,7 +27,7 @@ Responsável pelo gerenciamento das entidades principais do sistema escolar:
 
 **Base de dados**: `gerenciamento.db` (SQLite)
 
-### 2️⃣ **Microsserviço de Atividades** (Porta 5001)
+### **2. Microsserviço de Atividades** (Porta 5001)
 Responsável pelo gerenciamento acadêmico:
 - **Atividades**: CRUD de atividades escolares vinculadas a turmas e professores
 - **Notas**: CRUD de notas dos alunos vinculadas às atividades
@@ -36,7 +36,7 @@ Responsável pelo gerenciamento acadêmico:
 
 **Integrações**: Valida a existência de professores, turmas e alunos consultando o microsserviço de Gerenciamento via HTTP.
 
-### 3️⃣ **Microsserviço de Reservas** (Porta 5002)
+### **2. Microsserviço de Reservas** (Porta 5002)
 Responsável pelo gerenciamento de reservas:
 - **Reservas**: CRUD de reservas de salas
 
@@ -44,7 +44,7 @@ Responsável pelo gerenciamento de reservas:
 
 ---
 
-## 🏗️ Arquitetura de Microsserviços
+## Arquitetura de Microsserviços
 
 ### Padrão Arquitetural
 
@@ -107,7 +107,7 @@ Cada microsserviço possui sua própria base de dados SQLite:
 
 ---
 
-## 🔗 Integração entre Serviços
+## Integração entre Serviços
 
 ### Como os Microsserviços se Comunicam
 
@@ -212,7 +212,7 @@ Se o microsserviço de Gerenciamento estiver **offline**, a criação da ativida
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Backend
 - **Flask 3.1.2** - Framework web Python minimalista e poderoso
@@ -231,7 +231,7 @@ Se o microsserviço de Gerenciamento estiver **offline**, a criação da ativida
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 Mvc-Flask/
@@ -305,7 +305,7 @@ Mvc-Flask/
 
 ---
 
-## 🐳 Instruções de Execução com Docker
+## Instruções de Execução com Docker
 
 ### Pré-requisitos
 
@@ -328,11 +328,11 @@ docker-compose up --build
 ```
 
 **O que acontece:**
-- ✅ Cria 3 containers Docker (gerenciamento, atividades, reservas)
-- ✅ Instala todas as dependências automaticamente
-- ✅ Cria uma rede Docker privada `backend` para comunicação
-- ✅ Inicializa os bancos de dados SQLite
-- ✅ Expõe as portas 5000, 5001 e 5002
+- Cria 3 containers Docker (gerenciamento, atividades, reservas)
+- Instala todas as dependências automaticamente
+- Cria uma rede Docker privada `backend` para comunicação
+- Inicializa os bancos de dados SQLite
+- Expõe as portas 5000, 5001 e 5002
 
 **Aguarde até ver as mensagens:**
 ```
@@ -437,7 +437,7 @@ docker-compose logs -f
 
 ---
 
-## 📖 Documentação da API
+## Documentação da API
 
 Cada microsserviço possui sua documentação Swagger interativa:
 
@@ -448,9 +448,9 @@ Cada microsserviço possui sua documentação Swagger interativa:
 
 ---
 
-## 🔗 Endpoints dos Microsserviços
+## Endpoints dos Microsserviços
 
-### 🏫 Microsserviço de Gerenciamento (Porta 5000)
+### Microsserviço de Gerenciamento (Porta 5000)
 
 #### Professores
 | Método | Endpoint | Descrição |
@@ -511,7 +511,7 @@ POST /alunos
 }
 ```
 
-### 📚 Microsserviço de Atividades (Porta 5001)
+### Microsserviço de Atividades (Porta 5001)
 
 #### Atividades
 | Método | Endpoint | Descrição |
@@ -536,9 +536,9 @@ POST /atividades
 ```
 
 **Validações realizadas automaticamente:**
-- ✅ Consulta `GET http://gerenciamento:5000/professores/1`
-- ✅ Consulta `GET http://gerenciamento:5000/turmas/1`
-- ✅ Só cria a atividade se ambos existirem
+- Consulta `GET http://gerenciamento:5000/professores/1`
+- Consulta `GET http://gerenciamento:5000/turmas/1`
+- Só cria a atividade se ambos existirem
 
 #### Notas
 | Método | Endpoint | Descrição |
@@ -560,10 +560,10 @@ POST /notas
 ```
 
 **Validação realizada automaticamente:**
-- ✅ Consulta `GET http://gerenciamento:5000/alunos/1`
-- ✅ Só cria a nota se o aluno existir
+- Consulta `GET http://gerenciamento:5000/alunos/1`
+- Só cria a nota se o aluno existir
 
-### 🏢 Microsserviço de Reservas (Porta 5002)
+### Microsserviço de Reservas (Porta 5002)
 
 #### Reservas
 | Método | Endpoint | Descrição |
@@ -586,12 +586,12 @@ POST /reservas
 ```
 
 **Validações realizadas automaticamente:**
-- ✅ Consulta `GET http://gerenciamento:5000/turmas/1`
-- ✅ Só cria a reserva se a turma existir
+- Consulta `GET http://gerenciamento:5000/turmas/1`
+- Só cria a reserva se a turma existir
 
 ---
 
-## 🧪 Testando a Integração entre Microsserviços
+## Testando a Integração entre Microsserviços
 
 ### Cenário 1: Teste de Validação Bem-Sucedida
 
@@ -611,7 +611,7 @@ curl -X POST http://localhost:5001/atividades \
   -H "Content-Type: application/json" \
   -d '{"descricao": "Trabalho de História", "data_entrega": "2025-11-30", "turma_id": 1, "professor_id": 1}'
 
-# ✅ Resposta: {"mensagem": "Atividade criada com sucesso."}
+# Resposta: {"mensagem": "Atividade criada com sucesso."}
 ```
 
 ### Cenário 2: Teste de Validação com Falha
@@ -622,7 +622,7 @@ curl -X POST http://localhost:5001/atividades \
   -H "Content-Type: application/json" \
   -d '{"descricao": "Atividade Teste", "data_entrega": "2025-12-01", "turma_id": 1, "professor_id": 999}'
 
-# ❌ Resposta: {"erro": "Professor não encontrado. Status: 404"}
+# Resposta: {"erro": "Professor não encontrado. Status: 404"}
 ```
 
 ### Cenário 3: Teste com Serviço Offline
@@ -636,12 +636,12 @@ curl -X POST http://localhost:5001/atividades \
   -H "Content-Type: application/json" \
   -d '{"descricao": "Teste", "data_entrega": "2025-12-01", "turma_id": 1, "professor_id": 1}'
 
-# ❌ Resposta: {"erro": "Erro de conexão com Gerenciamento: ..."}
+# Resposta: {"erro": "Erro de conexão com Gerenciamento: ..."}
 ```
 
 ---
 
-## 🛠️ Desenvolvimento Local (Sem Docker)
+## Desenvolvimento Local (Sem Docker)
 
 Se preferir executar sem Docker para desenvolvimento:
 
@@ -675,7 +675,7 @@ response = requests.get(f'http://localhost:5000/professores/{professor_id}')
 
 ---
 
-## 🗃️ Modelos de Dados
+## Modelos de Dados
 
 ### Gerenciamento
 
@@ -749,7 +749,7 @@ response = requests.get(f'http://localhost:5000/professores/{professor_id}')
 
 ---
 
-## 🔍 Troubleshooting
+## Troubleshooting
 
 ### Problema: "Erro de conexão com Gerenciamento"
 
@@ -789,21 +789,21 @@ docker-compose up --build
 
 ---
 
-## 📊 Padrões e Boas Práticas Implementadas
+## Padrões e Boas Práticas Implementadas
 
-✅ **Arquitetura de Microsserviços**: Serviços independentes e desacoplados  
-✅ **Padrão MVC**: Separação clara de responsabilidades  
-✅ **RESTful API**: Endpoints seguindo convenções REST  
-✅ **Validação Cross-Service**: Validações via HTTP entre microsserviços  
-✅ **Tratamento de Erros**: Respostas apropriadas para cada cenário  
-✅ **Documentação Swagger**: Documentação interativa automática  
-✅ **Containerização**: Deploy consistente com Docker  
-✅ **Bancos Independentes**: Cada microsserviço com seu próprio banco  
-✅ **Códigos de Status HTTP**: Uso correto de status codes (200, 201, 404, 400, etc.)
+**Arquitetura de Microsserviços**: Serviços independentes e desacoplados  
+**Padrão MVC**: Separação clara de responsabilidades  
+**RESTful API**: Endpoints seguindo convenções REST  
+**Validação Cross-Service**: Validações via HTTP entre microsserviços  
+**Tratamento de Erros**: Respostas apropriadas para cada cenário  
+**Documentação Swagger**: Documentação interativa automática  
+**Containerização**: Deploy consistente com Docker  
+**Bancos Independentes**: Cada microsserviço com seu próprio banco  
+**Códigos de Status HTTP**: Uso correto de status codes (200, 201, 404, 400, etc.)
 
 ---
 
-## � Configuração do Docker
+## Configuração do Docker
 
 ### docker-compose.yml
 ```yaml
@@ -861,7 +861,7 @@ CMD ["python", "main.py"]
 
 ---
 
-## 👥 Autores
+## Autores
 
 Desenvolvido como projeto acadêmico para a disciplina de Desenvolvimento de APIs.
 
@@ -876,7 +876,7 @@ Desenvolvido como projeto acadêmico para a disciplina de Desenvolvimento de API
 
 ---
 
-## 📚 Referências
+## Referências
 
 - [Flask Documentation](https://flask.palletsprojects.com/)
 - [SQLAlchemy Documentation](https://docs.sqlalchemy.org/)
@@ -886,4 +886,4 @@ Desenvolvido como projeto acadêmico para a disciplina de Desenvolvimento de API
 
 ---
 
-⭐ **Se este projeto foi útil para você, deixe uma star no repositório!**
+**Se este projeto foi útil para você, deixe uma star no repositório!**
